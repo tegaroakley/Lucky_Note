@@ -12,7 +12,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
+import com.example.luckynote.db.NoteHelper;
+import com.example.luckynote.entity.Note;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -40,8 +41,8 @@ public class create_and_update extends AppCompatActivity implements View.OnClick
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_and_update);
 
-        edtTitle = findViewById(R.id.judul);
-        edtDescription = findViewById(R.id.deskripsi);
+        edtTitle = findViewById(R.id.title);
+        edtDescription = findViewById(R.id.description);
         btnSubmit = findViewById(R.id.btn_submit);
         btnSubmit.setOnClickListener(this);
 
@@ -59,7 +60,7 @@ public class create_and_update extends AppCompatActivity implements View.OnClick
         String btnTitle;
 
         if (isEdit) {
-            actionBarTitle = "Ubah";
+            actionBarTitle = "Edit";
             btnTitle = "Update";
 
             if (note != null) {
@@ -67,8 +68,8 @@ public class create_and_update extends AppCompatActivity implements View.OnClick
                 edtDescription.setText(note.getDescription());
             }
         } else {
-            actionBarTitle = "Tambah";
-            btnTitle = "Simpan";
+            actionBarTitle = "Add";
+            btnTitle = "Save";
         }
 
         if (getSupportActionBar() != null) {

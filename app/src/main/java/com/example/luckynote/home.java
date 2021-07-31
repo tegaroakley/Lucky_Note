@@ -19,7 +19,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 
-public class home extends AppCompatActivity implements View.OnClickListener, LoadNotesCallback {
+public class home extends AppCompatActivity implements View.OnClickListener, LoadNotesCallBack {
     private RecyclerView rvNotes;
     private ProgressBar progressBar;
     private FloatingActionButton fabAdd;
