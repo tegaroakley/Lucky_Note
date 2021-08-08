@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -15,9 +16,11 @@ import com.example.luckynote.db.NoteHelper;
 import com.example.luckynote.entity.Note;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
+import static com.example.luckynote.create_and_update.REQUEST_UPDATE;
 
 public class home extends AppCompatActivity implements View.OnClickListener, LoadNotesCallBack {
     private RecyclerView rvNotes;
@@ -27,6 +30,7 @@ public class home extends AppCompatActivity implements View.OnClickListener, Loa
     private NoteAdapter adapter;
     private NoteHelper noteHelper;
 
+    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -96,9 +100,9 @@ public class home extends AppCompatActivity implements View.OnClickListener, Loa
     private static class LoadNotesAsync extends AsyncTask<Void, Void, ArrayList<Note>> {
 
         private final WeakReference<NoteHelper> weakNoteHelper;
-        private final WeakReference<LoadNotesCallback> weakCallback;
+        private final WeakReference<LoadNotesCallBack> weakCallback;
 
-        private LoadNotesAsync(NoteHelper noteHelper, LoadNotesCallback callback) {
+        private LoadNotesAsync(NoteHelper noteHelper, LoadNotesCallBack callback) {
             weakNoteHelper = new WeakReference<>(noteHelper);
             weakCallback = new WeakReference<>(callback);
         }
@@ -173,4 +177,5 @@ public class home extends AppCompatActivity implements View.OnClickListener, Loa
         Snackbar.make(rvNotes, message, Snackbar.LENGTH_SHORT).show();
 
     }
+
 }
