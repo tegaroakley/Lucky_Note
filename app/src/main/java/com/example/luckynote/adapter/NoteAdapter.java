@@ -11,6 +11,9 @@ import com.example.luckynote.CustomOnItemClickListener;
 import com.example.luckynote.create_and_update;
 import com.example.luckynote.R;
 import com.example.luckynote.entity.Note;
+
+import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;

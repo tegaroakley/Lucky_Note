@@ -2,7 +2,7 @@ package com.example.luckynote;
 
 import android.view.View;
 
-public class CustomOnItemClickListener {
+public class CustomOnItemClickListener implements View.OnClickListener {
     private final int position;
     private final OnItemClickCallback onItemClickCallback;
     public CustomOnItemClickListener(int position, OnItemClickCallback onItemClickCallback) {

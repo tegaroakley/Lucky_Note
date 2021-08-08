@@ -3,7 +3,7 @@ package com.example.luckynote.entity;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class Note {
+public class Note implements Parcelable{
     private int id;
     private String title;
     private String description;
